@@ -1,30 +1,23 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 let amigos = [];
-// Implementa una función para agregar amigos
+// Función de agregado de lista de amigos.
 function agregarAmigo() {
     const nombre = document.getElementById('amigo').value.trim();
-    const regex = /^[A-Za-z]+(\s[A-Za-z]+)*$/;
-    if (nombre === '' || !regex.test(nombre)) {
-        alert('Por favor, ingrese un nombre válido (solo letras y espacios entre palabras)');
-        return;
-    }
     amigos.push(nombre);
     mostrarListaAmigos();
     document.getElementById('amigo').value = '';
 }
-
-// Implementa una función para actualizar la lista de amigos
+// Actualiza la lista de amigos
 function mostrarListaAmigos() {
     const listaAmigos = document.getElementById('listaAmigos');
     listaAmigos.innerHTML = '';
-    amigos.forEach(amigo => {
-        const li = document.createElement('li');
+    amigos.forEach(amigo => {const li = document.createElement('li');
         li.textContent = amigo;
         listaAmigos.appendChild(li);
     });
 }
 
-// Implementa una función para sortear los amigos
+// Sorteo del amigo secreto
 function sortearAmigo() {
     if (amigos.length === 0) {
         alert('Por favor, agregue al menos un amigo antes de sortear.');
